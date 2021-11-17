@@ -207,3 +207,22 @@ Another useful thing you may want to do is to keep the file in your working tree
 ```
 $ git rm --cached README
 ```
+
+# Working with Remotes
+
+### Fetching and Pulling from Your Remotes
+
+To get data from your remote projects, you can run:
+
+```
+$ git fetch <remote>
+```
+
+If you clone a repository, the command automatically adds that remote repository under the name "origin". So, `git fetch origin` fetches any new work that has been pushed to that server since you cloned.
+
+If your current branch is set up to track a remote branch, you can use the `git pull` command to automatically fecht and then merge that remote branch into your current branch.
+
+**Note**
+
+- From git version 2.27 onward, `git pull` will give a warning if the `pull.rebase` variable is not set. Git will keep warning you until you set the variable.
+- If you want the default behavior of git (fast-forward if possible, else create a merge commit): `git config --global pull.rebase "false"`
