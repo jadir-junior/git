@@ -81,3 +81,14 @@ There are two columns to the output -- the **left-hand** column indicates the st
 for example:
 
 In that output, the `README` file is modified in the working directory but not yeg staged, while the `lib/simplegit.rb` file is modified and staged. The `Rakefile` was modified, staged and then modified again, so there are changes to it that are both staged and unstaged
+
+### Ignoring Files
+
+`.gitignore`
+
+```
+touch .gitignore
+->
+*.[oa]
+*~
+```
