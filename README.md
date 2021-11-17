@@ -56,3 +56,28 @@ Remember that each file in your working directory can be in one of two state: **
 ### Checking the Status of Your Files
 
 The main tool you use to determine which files are in which state is the `git status` command
+
+### Short Status
+
+If you run `git status -s` or `git status --short` you get a far more simplified output from the command
+
+```
+$ git status -s
+  M README
+ MM Rakefile
+ A  lib/git.rb
+ M  lib/simplegit.rb
+ ?? LICENSE.txt
+```
+
+There are two columns to the output -- the **left-hand** column indicates the status of the staing area and the **right-hand** column indicates the status of the working tree
+
+**??** New files that aren't tracked
+
+**A** New files that have been added to the staging area
+
+**M** Modified files have an M
+
+for example:
+
+In that output, the `README` file is modified in the working directory but not yeg staged, while the `lib/simplegit.rb` file is modified and staged. The `Rakefile` was modified, staged and then modified again, so there are changes to it that are both staged and unstaged
