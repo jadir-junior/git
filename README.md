@@ -269,3 +269,49 @@ v1.4
 ```
 
 the `-m` specifies a tagging message, which is stored with the tag. If you don't specify a message for an annotated tag, Git launches your editor so you can ype it in.
+
+### Tagging Later
+
+You can also tag commits after you've moved past them. Suppose your commit history looks like this:
+
+```
+$ git log --pretty=oneline
+15027957951b64cf874c3557a0f3547bd83b3ff6 Merge branch 'experiment'
+a6b4c97498bd301d84096da251c98a07c7723e65 Create write support
+0d52aaab4479697da7686c15f77a3d64d9165190 One more thing
+6d52a271eda8725415634dd79daabbc4d9b6008e Merge branch 'experiment'
+0b7434d86859cc7b8c3d5e1dddfed66ff742fcbc Add commit function
+4682c3261057305bdd616e23b64b0857d832627b Add todo file
+166ae0c4d3f420721acbb115cc33848dfcc2121a Create write support
+9fceb02d0ae598e95dc970b74767f19372d61af8 Update rakefile
+964f16d36dfccde844893cac5b347e7b3d44abbc Commit the todo
+8a5cbc430f1a9c3d00faaeffd07798508422908a Update readme
+```
+
+Now, suppose you forgot to tag project at v1.2, wich was at the "Upadte rakefile" commit. You can add it after the fact. To tag that commit, you specify the commit checksum (or part of it) at the end of the command:
+
+```
+$ git tag -a v1.2 9fceb02
+```
+
+You can see that you've tagged the commit:
+
+```
+$ git tag
+v0.1
+v1.2
+v1.3
+
+$ git show v1.2
+tag v1.2
+Tagger: Scott Cachon <schacon@gee-mail.com>
+Date: Mon Feb 9 15:32:16 2009 - 0800
+
+version 1.2
+commit 9fceb02d0ae598e95dc970b74767f19372d61af8
+Author: Magnus Chacon <mchacon@gee-mail.com>
+Date:   Sun Apr 27 20:43:35 2008 -0700
+
+    Update rakefile
+...
+```
