@@ -152,3 +152,38 @@ index 000000...03902a1
 ```
 
 and `git diff --cached` to see what you've staged so far (`--staged` and `--cached` are synonyms)
+
+### Comitting Your Changes
+
+Config vim to commit
+
+```
+$ git config --global core.editor vim
+```
+
+The editor displays the following text (this example is a Vim screen):
+
+```
+#Please enter the commit message for your changes. Lines starting with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#   new file: README
+#   modified: CONTRIBUTING.md
+~
+~
+~
+".git/COMMIT_EDITMSG" 9L, 283C
+```
+
+For an even more explicit reminder of what you've modified, you can passa the `-V (--verbose)` option to `git commit`. Doing so also puts the diff of your change in the editor so you can see exactly what changes you're commiting
+
+Alternatively, you can type your commit message inline with the `commit` command by specifying it after a `-m` flag, like this:
+
+```
+$ git commit -m "Story 182: fix benchmarks for speed"
+[mater 463dc4f] Story 182: fix benchmarks for speed
+2 files changed, 2 insertions(+)
+create mode 100644 README
+```
