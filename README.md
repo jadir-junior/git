@@ -315,3 +315,19 @@ Date:   Sun Apr 27 20:43:35 2008 -0700
     Update rakefile
 ...
 ```
+
+### Sharing Tags
+
+By default, the `git push` command doesn't transfer tags to remote servers. You will have to explicitly push tags to a shared server after you have created them. This process is just like sharing remote branches -- you can run `git push origin <tagname>`
+
+If you have a lot of tags that you want to push up at once, you can alse use the `--tags` options the `git push` command. This will transfer all of your tags to the remote server that are not alerady there.
+
+### Deleting Tags
+
+To delete a tag **on your local repository**, you can use `git tag -d <tagname>`
+
+Note that this does not remote the tag from any remote servers
+
+```
+$ git push origin --delete <tagname>
+```
