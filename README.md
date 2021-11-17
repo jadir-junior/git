@@ -40,3 +40,19 @@ If you want to clone the repository into a directory named something other than 
 `$ git clone https://github.com/libgit2/libgit2 mylibgit`
 
 That command does the same thing as the previous one, but the target directory is called `mylibgit`
+
+# Git Basics - Recording Changes to the Repository
+
+### Recording Changes to the Repository
+
+Remember that each file in your working directory can be in one of two state: **tracked** or **untracked**.
+
+**Tracked** files are files that files that were in the last snapshot, as well as any newly staged files; they can be unmodified, modified, or staged. In short, **tracked** files are files Git knows about.
+
+**Untracked** files are everything else -- any files in your working directory that were not in your last snapshot and are not in your staging area. When you first clone a repository, all of your files will be tracked and unmodified because Git just checked them out and you haven't edited anything
+
+![The lifecycle of the status of your files](https://git-scm.com/book/en/v2/images/lifecycle.png)
+
+### Checking the Status of Your Files
+
+The main tool you use to determine which files are in which state is the `git status` command
