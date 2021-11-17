@@ -226,3 +226,46 @@ If your current branch is set up to track a remote branch, you can use the `git 
 
 - From git version 2.27 onward, `git pull` will give a warning if the `pull.rebase` variable is not set. Git will keep warning you until you set the variable.
 - If you want the default behavior of git (fast-forward if possible, else create a merge commit): `git config --global pull.rebase "false"`
+
+# Tagging
+
+### Listing Your Tags
+
+Listing the existing tags in Git is straightforward. Just type `git tag` (with optional `-l` or `--list`):
+
+```
+$ git tag
+v1.0
+v2.0
+```
+
+You can also search for tags mathc a paticular pattern, If you're interested only in looking at the 1.8.5 series:
+
+```
+$ git tag -l "v1.8.5*"
+v1.8.5
+v1.8.5-rc0
+v1.8.5-rc1
+```
+
+### Creating Tags
+
+Git supports two types of tags: **lightweight** and **annotated**.
+
+A **lightweight** tag is very muck like a branch that doesn't change -- it's just a pointer to a specific commit.
+
+**Annotated** tags, however, are stored as full objects in the Git database. They're checksummed; container the tagger name, email, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG). It's generally **recommended that you create annotated tags** so you can have all this information
+
+### Annotated Tags
+
+Creating an annotated tag in Git is simple. The eaiest way is to specify `-a` when you run `tag` command:
+
+```
+$ git tag -a v1.4 -m "my version 1.4"
+$git tag
+v0.1
+v1.3
+v1.4
+```
+
+the `-m` specifies a tagging message, which is stored with the tag. If you don't specify a message for an annotated tag, Git launches your editor so you can ype it in.
