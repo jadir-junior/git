@@ -187,3 +187,11 @@ $ git commit -m "Story 182: fix benchmarks for speed"
 2 files changed, 2 insertions(+)
 create mode 100644 README
 ```
+
+### Skipping the Staging Area
+
+Adding the `-a` option to the `git commit` command makes Git automatically stage every file that is already tracked before doing the commit, letting you skip the git add part:
+
+```
+$ git commit -a -m 'Add new benchmarks'
+```
