@@ -92,3 +92,63 @@ touch .gitignore
 *.[oa]
 *~
 ```
+
+### Viewing Your Staged and Unstaged Changes
+
+You'll probably use it most often to answer theses two questiosn: What have you changed but not yet staged?
+
+And what have you staged that you are about to commit?
+
+Although `git status` answers those questions very generally by listing the file names, `git diff` shows you the exact lines added and removed -- the patch, as it were
+
+Let's say you **edit** and **stage** the `README` file again and then **edit** the `CONTRIBUTING.md` file without **staging** it. If you run your `git status` command, you once again see something like this:
+
+```
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+    modified: README
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be commited)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+    modified: CONTRIBUTING.md
+```
+
+To see what you've changed but not yet staged, type `git diff` with no other arguments:
+
+```
+$ git diff
+diff --git a/CONTRIBUTING.md b//CONTRIBUTING.md
+index 8ebb911..643e24f 100644
+--- a/CONTRIBUTING.md
++++ b/CONTRIBUTING.md
+@@ -65,7 +65,8 @@ branch directly, things can get messy.
+Please include a nice description of your changes when you submit your PR; if we have to read the whole diff to figure out why you're contributing in the first place. you're less likely to get feedback and your change
+-merged in.
++merged in. Also, split your changes into compreheensive chunks if your patch is
++longer than a dozen lines.
+
+If you are starting to work a particular area, fell free to submit a PR that highliightss your work in progress (and note in the PR title that it's)
+```
+
+That command compares what is in your working directory with what is in your staging area. The result tells you the changes you've made that you haven't yet staged.
+
+If you want to see wath you've staged that will go into your next commit, you can use `git diff --staged`. This command compares your staged changes to your last commit
+
+```
+$ git diff --staged
+diff --git a/README b/README
+new file mode 100644
+index 000000...03902a1
+--- /dev/null
++++ b/README
+@@ -0,0 +1 @@
++My Project
+```
+
+and `git diff --cached` to see what you've staged so far (`--staged` and `--cached` are synonyms)
