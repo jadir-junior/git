@@ -11,3 +11,32 @@ Each level overrides values in the previous level, so values in `.git/config` tr
 You can view all of your settings and where they are coming from using:
 
 `$ git config --list --show-origin`
+
+# Git Basic - Getting a Git Repository
+
+### Getting a Git Repository
+
+You typically obtain a Git repository in one of two ways
+
+1. You can take a local directory that is currently not under version control, and turn it into a Git repository, or
+2. You can **clone** an existing Git repository from elsewhere
+
+### Initializing a Repository in an Existing Directory
+
+`$ cd /home/user/my_project`
+
+and type:
+
+`$ git init`
+
+This creates a new subdirectory named `.git` that contains all of your necessary repository files -- aGit repository skeleton.
+
+### Cloning an Existing Repository
+
+`$ git clone https://github.com/libgit2/libgit2`
+
+If you want to clone the repository into a directory named something other than `libgit2`, you can specify the new directory name as additional argument?
+
+`$ git clone https://github.com/libgit2/libgit2 mylibgit`
+
+That command does the same thing as the previous one, but the target directory is called `mylibgit`
